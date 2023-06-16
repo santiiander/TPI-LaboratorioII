@@ -1,0 +1,3 @@
+#Estrá asignado de la proxima forma
+(DNIPersonaEvento;FechaEvento;PrecioTotal;PrecioSeña)
+44297673;11-03-2024;10000;3000
