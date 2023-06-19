@@ -39,5 +39,5 @@ class Cliente:
     def get_email(self):
         return self.email
 
-Yo=Cliente("Santiago","Andermatten",44297673,3472468850,"santiagoandermatten1@gmail.com",1)
+Yo=Cliente("Santiago","Andermatten",44297673,3472468850,"santiagoandermatten1@gmail.com")
 print(Yo)     
