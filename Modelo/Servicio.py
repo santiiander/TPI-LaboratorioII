@@ -2,8 +2,9 @@ class Servicio:
     def __init__(self,nombre,precio):
         self.nombre=nombre
         self.precio=precio
+        services=[]
         
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Nombre: {self.nombre}\nPrecio: {self.precio}\n"
 
      #Definimos los Getters
