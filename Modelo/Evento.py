@@ -38,6 +38,6 @@ class Evento:
     def set_servicioss(self, dato):
         self.servicioss = dato
 
-Evento1=Evento("Congreso","11-03-2024","no se como usar esto",10000,3333,1)
+Evento1=Evento("Congreso","11-03-2024","no se como usar esto",10000,3333)
 
 print(Evento1)
