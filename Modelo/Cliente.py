@@ -1,12 +1,12 @@
 class Cliente:
-    def __init__(self,nombre,apellido,dni,telefono,email,id):
+    def __init__(self,nombre,apellido,dni,telefono,email):
         self.nombre=nombre
         self.apellido=apellido
         self.dni=dni
         self.telefono=telefono
         self.email=email
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Nombre: {self.nombre}\nApellido: {self.apellido}\nDNI: {self.dni}\nTeléfono: {self.telefono}\nEMAIL: {self.email}\n"
 
     def set_nombre(self, nombre):

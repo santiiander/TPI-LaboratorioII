@@ -1,5 +1,5 @@
 class Evento:
-    def __init__(self,tipo,fecha,servicios,total,senia,id):
+    def __init__(self,tipo,fecha,servicios,total,senia):
         self.tipo=tipo
         self.fecha=fecha
         self.servicios=servicios
@@ -7,7 +7,7 @@ class Evento:
         self.senia=senia
         servicioss=[]
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Tipo: {self.tipo}\nFecha: {self.fecha}\nServicios: {self.servicios}\nPrecioEvento: ${self.total} ARS\nSeñaEvento: ${self.senia} ARS\n"
 
      #Definimos los Getters
