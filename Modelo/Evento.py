@@ -5,7 +5,6 @@ class Evento:
         self.servicios=servicios
         self.total=total
         self.senia=senia
-        self.id=id
         servicioss=[]
 
     def __str__(self) -> str:
@@ -22,8 +21,6 @@ class Evento:
         return self.total
     def get_senia(self):
         return self.senia
-    def get_id(self):
-        return self.id
     def get_servicioss(self):
         return self.servicioss
 
@@ -38,8 +35,6 @@ class Evento:
         self.total = dato
     def set_senia(self, dato):
         self.senia = dato
-    def set_id(self, dato):
-        self.id = dato
     def set_servicioss(self, dato):
         self.servicioss = dato
 
