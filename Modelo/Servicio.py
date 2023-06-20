@@ -1,5 +1,5 @@
 class Servicio:
-    def __init__(self,nombre,precio):
+    def __init__(self,nombre="",precio=0):
         self.nombre=nombre
         self.precio=precio
 
@@ -26,28 +26,28 @@ class Servicio:
 
 class DJ(Servicio):
     def __init__(self):
-        super().__init__("DJ", 15)
+        super().__init__("DJ", 15000)
 
 class Decoracion(Servicio):
     def __init__(self):
-        super().__init__("Decoracion", 20)
+        super().__init__("Decoracion", 25000)
 
 class Cotillon(Servicio):
     def __init__(self):
-        super().__init__("Cotillon", 10)
+        super().__init__("Cotillon", 5000)
 
 class Maquina_de_humo(Servicio):
     def __init__(self):
-        super().__init__("Maquina de humo", 25)
+        super().__init__("Maquina de humo", 5000)
 
 class Maquillaje(Servicio):
     def __init__(self):
-        super().__init__("Maquillaje", 30)
+        super().__init__("Maquillaje", 15000)
 
 class Musica_en_vivo(Servicio):
     def __init__(self):
-        super().__init__("Musica en vivo", 35)
+        super().__init__("Musica en vivo", 35000)
 
 class Bufet(Servicio):
     def __init__(self):
-        super().__init__('Bufet', 35)
+        super().__init__('Bufet', 25000)

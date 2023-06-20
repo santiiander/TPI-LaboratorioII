@@ -1,8 +1,4 @@
-from Controlador.ServiceController import Sistema_de_reserva
-
-def main():
-    reservation_system = Sistema_de_reserva()
-    reservation_system.run()
-
+from Controlador.ServiceController import ServiceController
 if __name__ == '__main__':
-    main()
+    reservation_system=ServiceController()
+    reservation_system.run()

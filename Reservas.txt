@@ -1,4 +1,1 @@
-#Estrá asignado de la proxima forma
-(DNIPersonaEvento;FechaEvento;PrecioTotal)
-44297673;11-03-2024;10000
-
+22-06-2023, Nombre: Santiago Andermatten, DNI: 44297673, Email: santiagoandermatten1@gmail.com, Telefono: 3472468850
