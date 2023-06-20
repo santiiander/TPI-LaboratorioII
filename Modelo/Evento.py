@@ -1,13 +1,25 @@
 class Evento:
-    def __init__(self,tipo,fecha,servicios,total,senia):
-        self.tipo=tipo
+    def __init__(self,fecha):   #borre tipo y seña porque me rompia la pija, despues vemos como lo agregamos
         self.fecha=fecha
-        self.servicios=servicios
-        self.total=total
-        self.senia=senia
+
+
+    def disponible(self):
+        with open('Reservas.txt', 'r') as file:
+            eventos = file.readlines()
+            for evento in eventos:
+                if self.fecha == evento.strip():
+                    return False
+        return True
+    
+    def reserva(self, cliente):
+        with open("Reservas.txt", "a") as file:
+            file.write(self.fecha + ", " + cliente.get_informacion_personal() + "\n")
 
     def __str__(self):
         return f"Tipo: {self.tipo}\nFecha: {self.fecha}\nServicios: {self.servicios}\nPrecioEvento: ${self.total} ARS\nSeñaEvento: ${self.senia} ARS\n"
+
+
+
 
      #Definimos los Getters
     def get_tipo(self):

@@ -5,6 +5,23 @@ class Cliente:
         self.dni=dni
         self.telefono=telefono
         self.email=email
+        self.servicios = []
+
+    def alquilar_servicio(self, servicio):
+        self.servicios.append(servicio)
+
+    def calcular_costo_total(self):
+        costo_total = 0
+        for servicio in self.servicios:
+            costo_total += servicio.calcular_costo()
+        return costo_total
+
+    def get_informacion_personal(self):
+        return f"Nombre: {self.nombre} {self.apellido}, DNI: {self.dni}, Email: {self.email}, Telefono: {self.telefono}"
+
+
+
+
 
     def __str__(self):
         return f"Nombre: {self.nombre}\nApellido: {self.apellido}\nDNI: {self.dni}\nTeléfono: {self.telefono}\nEMAIL: {self.email}\n"
@@ -39,5 +56,7 @@ class Cliente:
     def get_email(self):
         return self.email
 
+'''
 Yo=Cliente("Santiago","Andermatten",44297673,3472468850,"santiagoandermatten1@gmail.com")
-print(Yo)     
+print(Yo)
+'''     
