@@ -18,13 +18,4 @@ class Servicio:
     def set_precio(self, dato):
         self.precio = dato
 
-     #Procedemos a crear los eventos predeterminados
-     #En el controlador  
 
-Cotillon=Servicio("Cotillon",10)
-Dj=Servicio("DJ",15)
-Decoracion=Servicio("Decoracion",20)
-MaqHumo=Servicio("Maquina de Humo",25)
-Maquillaje=Servicio("Maquillaje",30)
-MusicaEnVivo=("Musica en Vivo",35)
-Bufet=Servicio("Bufet",35)

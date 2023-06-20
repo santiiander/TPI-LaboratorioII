@@ -10,5 +10,8 @@ class ServiceView:
 
     def despedida(self):
         print("Gracias por utilizar nuestros servicios\nEquipo WhileTrue")    
+
+    def pedirInput(self):
+        print("Ingrese")    
     
     
