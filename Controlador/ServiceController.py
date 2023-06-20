@@ -50,4 +50,19 @@ class ServiceController():
             if a==Servicios:
                 print("Queso xd")
 
-        
+    """
+    Ejemplo lectura (Santiago)
+    def guardarArchivo(self):  #Revisar
+        with open ("pacientes.txt","w") as archivo:
+            for paciente in self.pacientes:
+                nombre=paciente.nombre
+                edad=paciente.edad
+                dni=paciente.dni
+                genero=paciente.genero
+                peso=paciente.peso
+                altura=paciente.altura
+                x=f"{nombre};{edad};{dni};{genero};{peso};{altura}\n"
+                archivo.writelines(x)
+    
+    
+    """    
