@@ -70,3 +70,7 @@ class mainView:
 
     def senia(self):
         print("¿Desea abonar la seña?\n1)Si\n2)No, cancelar reserva en curso.")    
+
+    def mostrarReembolso(self, monto_reembolso):
+        print(monto_reembolso)
+

@@ -4,7 +4,7 @@ from model.Event import Event
 from model.Service import Service
 from view.mainView import mainView
 
-import datetime
+from datetime import datetime, timedelta
 
 class mainController:
     def __init__(self,xd,modelEvent=Event(),modelService=Service(),view=mainView()):
@@ -161,22 +161,39 @@ class mainController:
 
     def cancelarReservacion(self):
         self.view.pedirFecha()
-        fecha=input()
+        fecha = input()
+        porcentaje_reembolso = 0
+        fecha_actual = datetime.now().date()
+
         with open("Reservas.txt", "r+") as archivo:
             lineas = archivo.readlines()
-            archivo.seek(0)           #Nos posicionamos al principio del txt para buscar.
+            archivo.seek(0)
+
             for linea in lineas:
-                if fecha not in linea:
+                datos = linea.strip().split(",")
+                reserva_fecha = datetime.strptime(datos[0], "%d-%m-%Y").date()
+                    
+                if fecha != datos[0]:
                     archivo.write(linea)
-
-                    #Agregar condicional de fecha para registrar rembolso o no
-
-                    self.view.reservacionCancelada()
                 else:
-                    self.view.errorCancelar()
-                
+                    fecha_a_cancelar = reserva_fecha - timedelta(days=15)
+                    if fecha_a_cancelar < fecha_actual:
+                        porcentaje_reembolso = 0
+                    else:
+                        porcentaje_reembolso = 0.2
+
             archivo.truncate()
             archivo.close()
+            self.view.reservacionCancelada()
+
+        if porcentaje_reembolso > 0:
+            monto_total = float(datos[-1])
+            monto_reembolso = monto_total * porcentaje_reembolso
+            self.view.mostrarReembolso(monto_reembolso)
+        elif porcentaje_reembolso == 0:
+            self.view.mostrarReembolso(porcentaje_reembolso)
+        else:
+            self.view.errorCancelar()
 
     def pagoSenia(self):   #Revisar
         self.view.printSenia()
