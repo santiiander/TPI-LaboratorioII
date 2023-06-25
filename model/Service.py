@@ -1,7 +1,7 @@
 class Service:
-    def __init__(self,nombre="",precio=0):
-        self.nombre=nombre
-        self.precio=precio
+    def __init__(self, nombre="", precio=0):
+        self.nombre = nombre
+        self.precio = precio
         
     def __str__(self):
         return f"Nombre: {self.nombre}\nPrecio: {self.precio}\n"

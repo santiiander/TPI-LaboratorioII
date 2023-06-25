@@ -74,3 +74,5 @@ class mainView:
     def mostrarReembolso(self, monto_reembolso):
         print(monto_reembolso)
 
+    def view_senia(self, costo_total):
+        print(f"Costo total: ${costo_total}")

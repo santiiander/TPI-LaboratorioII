@@ -1,9 +1,10 @@
 from model.Client import Client
 from view.mainView import mainView
+
 class clientController:
-    def __init__(self,model=Client(),view=mainView()):
-        self.model=model
-        self.view=view
+    def __init__(self,model=Client(), view=mainView()):
+        self.model = model
+        self.view = view
 
     def pedirDatosCliente(self):
         self.view.pedirNombre()

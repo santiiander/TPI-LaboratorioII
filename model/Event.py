@@ -1,6 +1,6 @@
 class Event:
-    def __init__(self,fecha=0):  
-        self.fecha=fecha
+    def __init__(self, fecha=0):  
+        self.fecha = fecha
 
     def __str__(self):
         return f"Tipo: {self.tipo}\nFecha: {self.fecha}\nServicios: {self.servicios}\nPrecioEvento: ${self.total} ARS\nSeñaEvento: ${self.senia} ARS\n"

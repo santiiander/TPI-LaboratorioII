@@ -1,10 +1,10 @@
 class Client:
     def __init__(self,nombre="",apellido="",dni=0,telefono=0,email=""):
-        self.nombre=nombre
-        self.apellido=apellido
-        self.dni=dni
-        self.telefono=telefono
-        self.email=email
+        self.nombre = nombre
+        self.apellido = apellido
+        self.dni = dni
+        self.telefono = telefono
+        self.email = email
 
     def __str__(self):
         return f"{self.nombre},{self.apellido},{self.dni},{self.telefono},{self.email}"
