@@ -16,7 +16,6 @@ class mainController:
         self.fechas_reservadas = []
         self.fechasocupadas=[]
 
-
     def menu(self):
         while True:
             self.view.menuPrincipal()
@@ -31,22 +30,19 @@ class mainController:
                 self.view.despedida()
                 exit()
 
-                    
-
     def alquilarEvento(self):
         self.client=self.xd.pedirDatosCliente()
         self.view.serviciosOfrecidos()
-        self.pinga()
+        self.run()
 
-    def pinga(self):
-
+    def run(self):
         while True:
                 self.view.elegirServicio()
                 eleccion = int(input())
                 if eleccion == 0:
                     break
-
                 servicio = None
+                
                 Deejay=Service("DJ",5000)
                 Decoracion=Service("Decoracion",25000)
                 Cotillon=Service("Cotillon",5000)
@@ -70,43 +66,42 @@ class mainController:
                 elif eleccion == 7:
                     servicio = Buffet
 
-                self.view.elegirHorasServicios()
-                horas = int(input())
-                servicio.precio *= horas
+                self.view.elegircantidadServicios()
+                cantidad = int(input())
+                servicio.precio *= cantidad
                 self.alquilar_servicio(servicio)
 
         self.view.pedirFecha()   #VER SI LA FECHA NO ESTÁ RESERVADA YA.
         fecha_reservada = input() #CORREGIR
+        self.crearFechasOcupadas()
 
-        
-
-
-        """while not evento.disponible():
-            self.view.fechaNoDisponible()   #Llamada evento
-            self.view.pedirFecha()          #Revisar que no 
-            fecha_reservada = input()       #Funciona
-            evento = Event(fecha_reservada)
-        """
-
+        for i in self.fechasocupadas:
+            while fecha_reservada==i:
+                self.view.fechaNoDisponible()
+                self.mostrar_fechas_disponibles()
+                self.view.pedirFecha()
+                fecha_reservada = input()
 
         evento = Event(fecha_reservada)
-        evento.reserva(self.client)                     #ACA PRINTEA EN EL TXT TODA LA INFO (SIN SALTO DE LINEA AHORA)
-        self.pasarCostoTotal(self.calcular_costo_total())
-        costo_total = self.calcular_costo_total()
-        self.view.reservacionExitosa()
-        self.fechas_reservadas.append(fecha_reservada) 
-        print(f"Costo total: ${costo_total}")
+        self.view.printSenia()
+        self.showsenia(self.calcular_costo_total())
+        self.view.senia()
+        senia=int(input())
 
+        if senia == 1:
 
-        
+            evento.reserva(self.client)                     
+            self.pasarCostoTotal(self.calcular_costo_total())
+            costo_total = self.calcular_costo_total()      #ACA PRINTEA EN EL TXT TODA LA INFO (SIN SALTO DE LINEA AHORA)
+            self.view.reservacionExitosa()
+            self.fechas_reservadas.append(fecha_reservada) 
+            print(f"Costo total: ${costo_total}")  #Pasar print al view
 
-        
+        else:
+            self.view.reservacionCancelada()
 
         #self.client.append(self.client) PRESTAR ATENCION, BORRAR SI NO SIRVE
 
-           
-
-    
     def alquilar_servicio(self, servicio): #Revisar
         self.servicios.append(servicio)
         print(servicio) #BORRAR
@@ -118,12 +113,14 @@ class mainController:
         with open("Reservas.txt", "a") as file:
             file.write(","+str(suma)+"\n") #Agregar \n de nuevo despues
 
+    def showsenia(self,suma):
+        print("$"+str(suma*0.30))
+
     def calcular_costo_total(self):
         for service in self.servicios:
             suma=0
             suma+=service.precio
         return suma    
-
 
     def mostrar_fechas_disponibles(self):
             fecha_actual = datetime.date.today()
@@ -147,18 +144,20 @@ class mainController:
             else:
                 self.view.nofechadosmeses()
 
+    def FechasDisponiblesDesdeIngresada(self):
+        pass
 
-    def mostrarFechasOcupadas(self):
+
+    def crearFechasOcupadas(self):
         with open("Reservas.txt", 'r') as file:
             for line in file:
                 x=line.split(",")
                 ocupadas=x[0]
                 self.fechasocupadas.append(ocupadas)  #Con esto podemos imprimir fechas ocupadas
-        self.printFechas()                            #Por si el usuario se quiere ahorrar la molestia
-
-    def printFechas(self):
-        for fecha in self.fechasocupadas:
-            print(fecha)
+                                                      #Por si el usuario se quiere ahorrar la molestia
+    def printearFechasOcupadas(self):
+        for i in self.fechasocupadas:
+            print (i)
 
     def cancelarReservacion(self):
         self.view.pedirFecha()
@@ -179,7 +178,7 @@ class mainController:
             archivo.truncate()
             archivo.close()
 
-    def pagoSenia(self):
+    def pagoSenia(self):   #Revisar
         self.view.printSenia()
         self.calcular_costo_total()
         self.view.senia()
@@ -189,6 +188,6 @@ class mainController:
         if senia==2:
             exit()
 
-
-
+    def crearTicket(self):
+        pass
         

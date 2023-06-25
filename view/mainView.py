@@ -2,25 +2,25 @@
 class mainView:
 
     def menuPrincipal(self):
-        print("\nMenu:")
+        print("\n~~~~~Menu~~~~~")
         print("1) Alquilar servicios.")
         print("2) Mostrar Fechas Disponibles.")
         print("3) Cancelar Reservacion de Evento.")
-        print("5) Salir\n")
+        print("4) Salir\n")
 
     def despedida(self):
         print("Gracias por utilizar nuestros servicios\nEquipo WhileTrue.")      
 
     def pedirNombre(self):
-        print("Ingrese su Nombre: ")
+        print("Ingrese el Nombre: ")
     def pedirApellido(self):
-        print("Ingrese su Apellido: ")
+        print("Ingrese el Apellido: ")
     def pedirDNI(self):
-        print("Ingrese su DNI: ")    
+        print("Ingrese el DNI: ")    
     def pedirEmail(self):
-        print("Ingese su Mail: ")
+        print("Ingese el Mail: ")
     def pedirNumero(self):
-        print("Ingrese su Numero: ")
+        print("Ingrese el Numero: ")
 
     def serviciosOfrecidos(self):
         print("Servicios disponibles:")
@@ -35,14 +35,15 @@ class mainView:
     def elegirServicio(self):
         print("Seleccione un servicio para alquilar del 1 al 7 o precione 0 para finalizar: ")
 
-    def elegirHorasServicios(self):
-        print("Ingrese el numero de horas que desea alquilar el servicio: ")
+    def elegircantidadServicios(self):
+        print("Ingrese cuantas veces requiere el servicio: ")
     
     def pedirFecha(self):
         print("Ingrese fecha de reservacion (DD-MM-AAAA): ")
     
     def fechaNoDisponible(self):
-        print("La fecha elegida no esta disponible, ingrese otra.")
+        print("La fecha elegida no esta disponible, pero le sugerimos las siguientes. ")
+        
 
     def reservacionExitosa(self):
         print("Reservacion exitosa")
