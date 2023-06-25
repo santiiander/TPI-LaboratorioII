@@ -5,9 +5,8 @@ class mainView:
         print("\nMenu:")
         print("1) Alquilar servicios.")
         print("2) Mostrar Fechas Disponibles.")
-        print("3) Mostrar Fechas Ocupadas.")
-        print("4) Cancelar Reservacion de Evento.")
-        print("5) Salir")
+        print("3) Cancelar Reservacion de Evento.")
+        print("5) Salir\n")
 
     def despedida(self):
         print("Gracias por utilizar nuestros servicios\nEquipo WhileTrue.")      
@@ -19,9 +18,9 @@ class mainView:
     def pedirDNI(self):
         print("Ingrese su DNI: ")    
     def pedirEmail(self):
-        print("Ingese su MAIL: ")
+        print("Ingese su Mail: ")
     def pedirNumero(self):
-        print("Ingrese su numero: ")
+        print("Ingrese su Numero: ")
 
     def serviciosOfrecidos(self):
         print("Servicios disponibles:")
@@ -55,8 +54,18 @@ class mainView:
         print("Fechas Disponibles: ")    
 
     def nofechadosmeses(self):
-        print("No hay fechas disponibles en los porximos 2 meses.")    
+        print("No hay fechas disponibles en los proximos 2 meses.")    
 
     def reservacionCancelada(self):
-        print("Su reservacion fue cancelada con exito!")
+        print("Su reservacion fue cancelada con exito.")
         self.despedida()    
+
+    def errorCancelar(self):
+        print("La reservacion ingresada no coincide con ninguna en nuestra base de datos\n")    
+
+    def printSenia(self):
+        print("Casi terminamos la reservacion, necesitamos que confirme el pago de la seña")
+        print("Será de: ")
+
+    def senia(self):
+        print("¿Desea abonar la seña?\n1)Si\n2)No, cancelar reserva en curso.")    

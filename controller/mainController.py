@@ -26,13 +26,12 @@ class mainController:
             if dato == 2:
                 self.mostrar_fechas_disponibles()
             if dato == 3:
-                self.mostrarFechasOcupadas()
-            if dato ==4:
                 self.cancelarReservacion()
-                self.view.reservacionCancelada()
-            if dato ==5:
+            if dato ==4:
                 self.view.despedida()
-                exit()    
+                exit()
+
+                    
 
     def alquilarEvento(self):
         self.client=self.xd.pedirDatosCliente()
@@ -76,23 +75,36 @@ class mainController:
                 servicio.precio *= horas
                 self.alquilar_servicio(servicio)
 
-        self.view.pedirFecha()
-        fecha_reservada = input()
-        evento = Event(fecha_reservada)
+        self.view.pedirFecha()   #VER SI LA FECHA NO ESTÁ RESERVADA YA.
+        fecha_reservada = input() #CORREGIR
 
-        while not evento.disponible():
+        
+
+
+        """while not evento.disponible():
             self.view.fechaNoDisponible()   #Llamada evento
             self.view.pedirFecha()          #Revisar que no 
             fecha_reservada = input()       #Funciona
             evento = Event(fecha_reservada)
+        """
 
+
+        evento = Event(fecha_reservada)
         evento.reserva(self.client)                     #ACA PRINTEA EN EL TXT TODA LA INFO (SIN SALTO DE LINEA AHORA)
         self.pasarCostoTotal(self.calcular_costo_total())
         costo_total = self.calcular_costo_total()
         self.view.reservacionExitosa()
+        self.fechas_reservadas.append(fecha_reservada) 
         print(f"Costo total: ${costo_total}")
+
+
+        
+
+        
+
         #self.client.append(self.client) PRESTAR ATENCION, BORRAR SI NO SIRVE
-        self.fechas_reservadas.append(fecha_reservada)    
+
+           
 
     
     def alquilar_servicio(self, servicio): #Revisar
@@ -153,10 +165,30 @@ class mainController:
         fecha=input()
         with open("Reservas.txt", "r+") as archivo:
             lineas = archivo.readlines()
-            archivo.seek(0)
+            archivo.seek(0)           #Nos posicionamos al principio del txt para buscar.
             for linea in lineas:
                 if fecha not in linea:
                     archivo.write(linea)
+
+                    #Agregar condicional de fecha para registrar rembolso o no
+
+                    self.view.reservacionCancelada()
+                else:
+                    self.view.errorCancelar()
+                
             archivo.truncate()
             archivo.close()
 
+    def pagoSenia(self):
+        self.view.printSenia()
+        self.calcular_costo_total()
+        self.view.senia()
+        senia=(input())
+        if senia==1:
+            pass
+        if senia==2:
+            exit()
+
+
+
+        
