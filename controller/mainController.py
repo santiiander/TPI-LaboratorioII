@@ -118,7 +118,7 @@ class mainController:
         for service in self.servicios:
             suma = 0
             suma += service.precio
-        return suma    
+        return (suma + (suma * 0.31))  
 
     def mostrar_fechas_disponibles(self):
             fecha_actual = datetime.date.today()
@@ -174,7 +174,7 @@ class mainController:
                     if fecha_a_cancelar < fecha_actual:
                         porcentaje_reembolso = 0
                     else:
-                        porcentaje_reembolso = 0.2
+                        porcentaje_reembolso = 0.06
 
             archivo.truncate()
             archivo.close()

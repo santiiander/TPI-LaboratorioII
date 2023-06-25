@@ -32,14 +32,6 @@ class Event:
         self.senia = dato
     def set_servicioss(self, dato):
         self.servicioss = dato
-
-    def disponible(self):
-        with open("Reservas.txt", "r") as file:
-            reservaciones = file.readlines()
-            for evento in reservaciones:
-                if self.fecha == evento.strip():
-                    return False
-        return True
     
     def reserva(self, cliente):
         with open("Reservas.txt", "a") as file:
