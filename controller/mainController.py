@@ -186,6 +186,7 @@ class mainController:
             self.view.pedirFecha()
             fecha = self.get_fecha_valida()
             porcentaje_reembolso = 0
+            y = 0
             fecha_actual = datetime.now().date()
 
             with open("Reservas.txt", "r+") as archivo:
@@ -202,20 +203,24 @@ class mainController:
                         fecha_a_cancelar = reserva_fecha - timedelta(days=15)
                         if fecha_a_cancelar < fecha_actual:
                             porcentaje_reembolso = 0
+                            y = 1
+                            self.view.reservacionCancelada()
+
                         else:
                             porcentaje_reembolso = 0.06
+                            y = 1
+                            self.view.reservacionCancelada()
 
                 archivo.truncate()
                 archivo.close()
-                self.view.reservacionCancelada()
 
             if porcentaje_reembolso > 0:
                 monto_total = float(datos[-1])
                 monto_reembolso = monto_total * porcentaje_reembolso
                 self.view.mostrarReembolso(monto_reembolso)
-            elif porcentaje_reembolso == 0:
+            elif porcentaje_reembolso == 0 and y == 1:
                 self.view.mostrarReembolso(porcentaje_reembolso)
-            else:
+            elif y == 0:
                 self.view.errorCancelar()
         except FileNotFoundError:
             self.view.file_not_found()
