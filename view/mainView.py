@@ -76,3 +76,15 @@ class mainView:
 
     def view_senia(self, costo_total):
         print(f"Costo total: ${costo_total}")
+
+    def file_not_found(self):
+        print('El archivo no se ha encontrado')
+
+    def no_hay_reservaciones(self):
+        print('Aun no se han hecho reservaciones, todas las fechas estan disponibles')
+    
+    def input_invalido(self):
+        print('Opcion no permitida, ingrese de nuevo.')
+
+    def fecha_invalida(self):
+        print('Fecha o formato no valido, porfavor intente de nuevo.\nAsegurse de que la fecha sea en dia-mes-año.')

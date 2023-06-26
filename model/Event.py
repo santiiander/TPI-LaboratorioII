@@ -34,5 +34,9 @@ class Event:
         self.servicioss = dato
     
     def reserva(self, cliente):
-        with open("Reservas.txt", "a") as file:
-            file.write(self.fecha + "," + cliente.__str__()) #Agregar \n de nuevo despues
+        try:    
+            with open("Reservas.txt", "a") as file:
+                file.write(self.fecha + "," + cliente.__str__()) #Agregar \n de nuevo despues
+        except FileNotFoundError:
+            with open("Reservas.txt", "w") as file:
+                file.write(self.fecha + "," + cliente.__str__()) #Agregar \n de nuevo despues
