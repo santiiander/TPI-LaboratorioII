@@ -46,7 +46,7 @@ class mainView:
         
 
     def reservacionExitosa(self):
-        print("Reservacion exitosa")
+        print("Reservacion exitosa\n")
     
     def mostrarCostoTotal(self):
         print("Costo total:" ) 
@@ -69,7 +69,7 @@ class mainView:
         print("Será de: ")
 
     def senia(self):
-        print("¿Desea abonar la seña?\n1)Si\n2)No, cancelar reserva en curso.")    
+        print("¿Desea abonar la seña?\n1)Si\n2)No, cancelar reserva en curso.\n")    
 
     def mostrarReembolso(self, monto_reembolso):
         print(monto_reembolso)

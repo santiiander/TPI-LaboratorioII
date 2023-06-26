@@ -35,4 +35,4 @@ class Event:
     
     def reserva(self, cliente):
         with open("Reservas.txt", "a") as file:
-            file.write(self.fecha + ", " + cliente.__str__()) #Agregar \n de nuevo despues
+            file.write(self.fecha + "," + cliente.__str__()) #Agregar \n de nuevo despues

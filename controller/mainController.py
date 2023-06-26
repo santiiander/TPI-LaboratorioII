@@ -4,7 +4,8 @@ from model.Event import Event
 from model.Service import Service
 from view.mainView import mainView
 
-from datetime import datetime, timedelta
+from datetime import timedelta,datetime
+import datetime
 
 class mainController:
     def __init__(self, client_controller, modelEvent=Event(), modelService=Service(), view=mainView()):
@@ -22,6 +23,7 @@ class mainController:
             dato=int(input())
             if dato == 1:
                 self.alquilarEvento()
+                self.generar_resumen()
             if dato == 2:
                 self.mostrar_fechas_disponibles()
             if dato == 3:
@@ -198,3 +200,37 @@ class mainController:
             pass
         if senia == 2:
             exit()
+
+
+    #Quitar si no funciona 
+    def generar_resumen(self):
+        try:
+            for i in self.servicios:
+                print (i)
+
+        except Exception:
+           print("Error al leer el archivo ")  
+
+
+"""
+    def generar_resumen(self):
+        try:
+            with open("Reservas.txt", "r") as file:
+                reservas = file.readlines()
+
+            for reserva in reservas:
+                datos_reserva = reserva.strip().split(",")
+                fecha_reservada = datos_reserva[0]
+                servicios_contratados = servicio[1:-1]
+                pago = datos_reserva[-1]
+
+                print("Fecha reservada:", fecha_reservada)
+                print("Servicios contratados:")
+                for servicio in servicios_contratados:
+                    print("-", servicio)
+                    print("Pago:", pago)
+                    print("")
+        except IOError:
+            print("Error al leer el archivo ")       
+"""
+                 
