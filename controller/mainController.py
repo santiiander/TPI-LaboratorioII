@@ -239,6 +239,7 @@ class mainController:
 
         except Exception:
             self.view.file_not_found()
+           
 
     def get_fecha_valida(self):
         while True:
@@ -256,28 +257,3 @@ class mainController:
                     self.view.fecha_invalida()
             except ValueError:
                 self.view.fecha_invalida()
-
-
-
-"""
-    def generar_resumen(self):
-        try:
-            with open("Reservas.txt", "r") as file:
-                reservas = file.readlines()
-
-            for reserva in reservas:
-                datos_reserva = reserva.strip().split(",")
-                fecha_reservada = datos_reserva[0]
-                servicios_contratados = servicio[1:-1]
-                pago = datos_reserva[-1]
-
-                print("Fecha reservada:", fecha_reservada)
-                print("Servicios contratados:")
-                for servicio in servicios_contratados:
-                    print("-", servicio)
-                    print("Pago:", pago)
-                    print("")
-        except IOError:
-            print("Error al leer el archivo ")       
-"""
-                

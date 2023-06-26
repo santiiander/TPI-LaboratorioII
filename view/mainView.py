@@ -20,7 +20,7 @@ class mainView:
     def pedirEmail(self):
         print("Ingese el Mail: ")
     def pedirNumero(self):
-        print("Ingrese el Numero: ")
+        print("Ingrese el Numero de celular: ")
 
     def serviciosOfrecidos(self):
         print("Servicios disponibles:")
@@ -72,6 +72,7 @@ class mainView:
         print("¿Desea abonar la seña?\n1)Si\n2)No, cancelar reserva en curso.\n")    
 
     def mostrarReembolso(self, monto_reembolso):
+        print("El monto de rembolso a dar será: ")
         print(monto_reembolso)
 
     def view_senia(self, costo_total):
@@ -84,7 +85,7 @@ class mainView:
         print('Aun no se han hecho reservaciones, todas las fechas estan disponibles')
     
     def input_invalido(self):
-        print('Opcion no permitida, ingrese de nuevo.')
+        print('Parámetro no válido.')
 
     def fecha_invalida(self):
         print('Fecha o formato no valido, porfavor intente de nuevo.\nAsegurse de que la fecha sea en dia-mes-año.')
